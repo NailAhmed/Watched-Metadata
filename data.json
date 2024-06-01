@@ -1,0 +1,27 @@
+{
+  "headerGroups": [
+    {
+      "watchedField": "Start_date",
+      "header": "## Дата Начало",
+      "active": true
+    },
+    {
+      "watchedField": "Video",
+      "header": "## Моя музыка",
+      "active": true
+    },
+    {
+      "watchedField": "Tittle",
+      "header": "#",
+      "active": true
+    }
+  ],
+  "commandGroups": [
+    {
+      "watchedField": "Plan",
+      "command": "workspace:split-vertical",
+      "active": true
+    }
+  ],
+  "lastMetadataValues": {}
+}

@@ -4,7 +4,7 @@ const DEFAULT_SETTINGS = {
     headerGroups: [
         {
             watchedField: 'exampleField',
-            header: '## Дата Начало',
+            header: '',
             active: true
         }
     ],

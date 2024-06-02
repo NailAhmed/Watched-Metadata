@@ -21,6 +21,11 @@
       "watchedField": "Plan",
       "command": "workspace:split-vertical",
       "active": true
+    },
+    {
+      "watchedField": "",
+      "command": "",
+      "active": true
     }
   ],
   "lastMetadataValues": {}

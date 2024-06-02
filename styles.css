@@ -1,8 +1,21 @@
-/*
-
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
-
-If your plugin does not need CSS, delete this file.
-
-*/
+/* styles.css */
+.metadata-watcher-group {
+    border-top: 1px solid var(--background-modifier-border);
+    padding-top: 20px;
+    padding-bottom: 5px;
+  }
+  
+  .mod-setting-tabs {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .mod-setting-tabs button {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .suggestion-content {
+    /* Style for suggestion content */
+  }
+  

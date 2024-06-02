@@ -336,3 +336,4 @@ class MetadataWatcherSettingTab extends PluginSettingTab {
 }
 
 export default MetadataWatcherPlugin;
+

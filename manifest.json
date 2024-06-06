@@ -6,8 +6,8 @@
 	"description": "Watches for changes in metadata and performs user-specified actions based on these changes."
 	,
 	"author": "Nail Ahmed",
-	"authorUrl": "",
-	"fundingUrl": "",
-	"isDesktopOnly": false,
-	"styles": "styles.css"
+	"authorUrl": "https://github.com/NailAhmed",
+    "fundingUrl": "https://www.buymeacoffee.com/NailAhmed",
+	"isDesktopOnly": false
+
 }

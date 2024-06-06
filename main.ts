@@ -178,8 +178,9 @@ class MetadataWatcherSettingTab extends PluginSettingTab {
     const { containerEl } = this;
     containerEl.empty();
     const tabsEl = containerEl.createEl("div", { cls: "mod-setting-tabs" });
-    const headerTab = tabsEl.createEl("button", { text: "Header Groups" });
-    const commandTab = tabsEl.createEl("button", { text: "Command Groups", cls: "mod-setting-tab" });
+
+    const headerTab = tabsEl.createEl("button", { text: "Header groups" });
+    const commandTab = tabsEl.createEl("button", { text: "Command groups", cls: "mod-setting-tab" });
 
     const headerSection = containerEl.createEl("div", { cls: "" });
     const commandSection = containerEl.createEl("div", { cls: "mod-setting-section" });
@@ -214,13 +215,17 @@ class MetadataWatcherSettingTab extends PluginSettingTab {
   }
 
   createHeaderGroupSettings(containerEl) {
-    containerEl.createEl("h2", { text: "Header Replacement Groups" });
+    const headerSetting = new Setting(containerEl);
+    headerSetting.setName('Header replacement groups').setHeading();
+    headerSetting.settingEl.addClass('setting-heading-custom');
+    headerSetting.settingEl.addClass('heading-h2'); // добавление класса
+
     containerEl.createEl("p", { text: "Configure header replacement groups based on metadata fields." });
     this.plugin.settings.headerGroups.forEach((group, index) => {
       this.createHeaderGroupSetting(containerEl, group, index);
     });
 
-    const addHeaderGroupButton = containerEl.createEl("button", { text: "Add Header Group" });
+    const addHeaderGroupButton = containerEl.createEl("button", { text: "Add header group" });
     addHeaderGroupButton.classList.add("mod-cta");
     addHeaderGroupButton.addEventListener("click", async () => {
       this.plugin.settings.headerGroups.push({
@@ -232,16 +237,23 @@ class MetadataWatcherSettingTab extends PluginSettingTab {
       this.display();
     });
     containerEl.appendChild(addHeaderGroupButton);
+
+    // Add donation section
+    this.addDonationSection(containerEl);
   }
 
   createCommandGroupSettings(containerEl) {
-    containerEl.createEl("h2", { text: "Command Execution Groups" });
+    const commandSetting = new Setting(containerEl);
+    commandSetting.setName('Command execution groups').setHeading();
+    commandSetting.settingEl.addClass('setting-heading-custom');
+    commandSetting.settingEl.addClass('heading-h2'); // добавление класса
+
     containerEl.createEl("p", { text: "Configure command execution groups based on metadata fields." });
     this.plugin.settings.commandGroups.forEach((group, index) => {
       this.createCommandGroupSetting(containerEl, group, index);
     });
 
-    const addCommandGroupButton = containerEl.createEl("button", { text: "Add Command Group" });
+    const addCommandGroupButton = containerEl.createEl("button", { text: "Add command group" });
     addCommandGroupButton.classList.add("mod-cta");
     addCommandGroupButton.addEventListener("click", async () => {
       this.plugin.settings.commandGroups.push({
@@ -253,13 +265,16 @@ class MetadataWatcherSettingTab extends PluginSettingTab {
       this.display();
     });
     containerEl.appendChild(addCommandGroupButton);
+
+    // Add donation section
+    this.addDonationSection(containerEl);
   }
 
   createHeaderGroupSetting(containerEl, group, index) {
     const groupEl = containerEl.createEl("div", { cls: "mod-metadata-watcher-group" });
     groupEl.addClass("metadata-watcher-group");
     const setting = new Setting(groupEl)
-      .setName(`Header Group ${index + 1}`)
+      .setName(`Header group ${index + 1}`)
       .addText((text) =>
         text
           .setPlaceholder("Enter field name")
@@ -283,7 +298,7 @@ class MetadataWatcherSettingTab extends PluginSettingTab {
         await this.plugin.saveSettings();
       }));
 
-    const removeButton = groupEl.createEl("button", { text: "Remove Group", cls: "mod-warning" });
+    const removeButton = groupEl.createEl("button", { text: "Remove group", cls: "mod-warning" });
     removeButton.addEventListener("click", async () => {
       this.plugin.settings.headerGroups.splice(index, 1);
       await this.plugin.saveSettings();
@@ -298,7 +313,7 @@ class MetadataWatcherSettingTab extends PluginSettingTab {
     const groupEl = containerEl.createEl("div", { cls: "mod-metadata-watcher-group" });
     groupEl.addClass("metadata-watcher-group");
     const setting = new Setting(groupEl)
-      .setName(`Command Group ${index + 1}`)
+      .setName(`Command group ${index + 1}`)
       .addText((text) =>
         text
           .setPlaceholder("Enter field name")
@@ -309,7 +324,7 @@ class MetadataWatcherSettingTab extends PluginSettingTab {
           })
       )
       .addButton((button) => {
-        const commandName = this.plugin.app.commands.findCommand(group.command)?.name || "Select Command";
+        const commandName = this.plugin.app.commands.findCommand(group.command)?.name || "Select command";
         button.setButtonText(commandName).onClick(() => {
           new CommandSuggestModal(this.app, this.plugin, (command) => {
             group.command = command.id;
@@ -323,7 +338,7 @@ class MetadataWatcherSettingTab extends PluginSettingTab {
         await this.plugin.saveSettings();
       }));
 
-    const removeButton = groupEl.createEl("button", { text: "Remove Group", cls: "mod-warning" });
+    const removeButton = groupEl.createEl("button", { text: "Remove group", cls: "mod-warning" });
     removeButton.addEventListener("click", async () => {
       this.plugin.settings.commandGroups.splice(index, 1);
       await this.plugin.saveSettings();
@@ -333,7 +348,26 @@ class MetadataWatcherSettingTab extends PluginSettingTab {
     const addButton = containerEl.querySelector("button.mod-cta-secondary");
     containerEl.insertBefore(groupEl, addButton);
   }
+
+  addDonationSection(containerEl) {
+    const donateSection = containerEl.createEl("div", { cls: "donate-section" });
+    donateSection.createEl("p", {
+      text: "If you find this plugin useful, click below to support its development!",
+    });
+    const donateButton = donateSection.createEl("a", {
+      href: "https://www.buymeacoffee.com/NailAhmed",
+      target: "_blank",
+    });
+    donateButton.createEl("img", {
+      attr: {
+        src: "https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png",
+        alt: "Buy Me A Coffee",
+        class: "donate-img"
+      }
+    });
+    containerEl.appendChild(donateSection);
+  }
 }
 
-export default MetadataWatcherPlugin;
 
+export default MetadataWatcherPlugin;

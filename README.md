@@ -6,6 +6,9 @@ MetadataWatcher is a plugin for Obsidian that monitors changes in metadata field
 
 - **Header Replacement**: Automatically replace specific headers in your notes with metadata values when they change.
 - **Command Execution**: Execute predefined commands when metadata fields are updated.
+## ❤️ Support the project directly:
+
+<a href="https://www.buymeacoffee.com/NailAhmed" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 217px !important;" ></a>
 
 ## Installation
 

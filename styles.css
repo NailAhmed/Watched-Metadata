@@ -1,60 +1,44 @@
-/* styles.css */
 .metadata-watcher-group {
-    border-top: 1px solid var(--background-modifier-border);
-    padding-top: 20px;
-    padding-bottom: 5px;
-  }
-  .heading-h2 {
-    padding-top: 10px;
-    font-size: 1.5em; /* Размер текста для H2 */
-    font-weight: bold; /* Дополнительно, чтобы подчеркнуть заголовок */
-}
-  .mod-setting-tabs button {
-    padding: 10px;
-    cursor: pointer;
-    font-size: 1em; /* Размер текста для H2 */
-    
-}
-  .mod-setting-tabs {
-    display: flex;
-    gap: 10px;
-  }
-  .setting-item {
-    padding-top: 10px;
-  }
-
-  .mod-setting-tabs button {
-    padding: 10px;
-    cursor: pointer;
-  }
-  .setting-heading-custom {
-    padding-top: 10px;
-    font-size: 14px;
+  border-top: 1px solid var(--background-modifier-border);
+  padding-top: 20px;
+  padding-bottom: 5px;
 }
 
-.setting-item:first-child {
-  padding-top: 5px;
-  /* border-top: none; */
+.mod-setting-tabs {
+  display: flex;
+  gap: 10px;
 }
-  .suggestion-content {
-    /* Style for suggestion content */
-  }
-  .donate-section {
-    border-top: 1px solid var(--background-modifier-border);
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .donate-section p {
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  .donate-section a img {
-    height: 50px !important;
-    width: 217px !important;
-  }
-  .donate-img {
-    height: 50px !important;
-    width: 217px !important;
-  }
+
+.setting-item {
+  padding-top: 10px;
+}
+
+.mod-setting-tabs button {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-content {
+  /* Style for suggestion content */
+}
+
+.donate-section {
+  border-top: 1px solid var(--background-modifier-border);
+  margin-top: 20px;
+  text-align: center;
+}
+
+.donate-section p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.donate-section a img {
+  height: 50px !important;
+  width: 217px !important;
+}
+
+.donate-img {
+  height: 50px !important;
+  width: 217px !important;
+}

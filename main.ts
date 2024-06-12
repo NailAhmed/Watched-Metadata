@@ -217,8 +217,6 @@ class MetadataWatcherSettingTab extends PluginSettingTab {
   createHeaderGroupSettings(containerEl) {
     const headerSetting = new Setting(containerEl);
     headerSetting.setName('Header replacement groups').setHeading();
-    headerSetting.settingEl.addClass('setting-heading-custom');
-    headerSetting.settingEl.addClass('heading-h2'); // добавление класса
 
     containerEl.createEl("p", { text: "Configure header replacement groups based on metadata fields." });
     this.plugin.settings.headerGroups.forEach((group, index) => {
@@ -245,8 +243,6 @@ class MetadataWatcherSettingTab extends PluginSettingTab {
   createCommandGroupSettings(containerEl) {
     const commandSetting = new Setting(containerEl);
     commandSetting.setName('Command execution groups').setHeading();
-    commandSetting.settingEl.addClass('setting-heading-custom');
-    commandSetting.settingEl.addClass('heading-h2'); // добавление класса
 
     containerEl.createEl("p", { text: "Configure command execution groups based on metadata fields." });
     this.plugin.settings.commandGroups.forEach((group, index) => {
@@ -368,6 +364,5 @@ class MetadataWatcherSettingTab extends PluginSettingTab {
     containerEl.appendChild(donateSection);
   }
 }
-
 
 export default MetadataWatcherPlugin;
